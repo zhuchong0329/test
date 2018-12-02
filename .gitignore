@@ -1,2 +1,7 @@
 .cproject
 .project
+main
+*.o
+*.yy.*
+*.tab.*
+
