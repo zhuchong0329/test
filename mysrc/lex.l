@@ -34,6 +34,7 @@ opt     ("+"|"-"|"*"|"/")
 
 int yywrap()//此函数必须由用户提供,或者声明 %option noyywrap
 {
+	printf("yywrap\n");
     return 1;
 }
 
