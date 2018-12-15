@@ -19,11 +19,6 @@ extern "C"
 expression : 
 	{
 	}
-	| INTEGER
-	{
-		$$ = $1;
-		printf("exp1:%d\n",$1);
-	}
 	| expression OPT INTEGER
 	{
 		if ($2 == "+") {
@@ -39,6 +34,11 @@ expression :
 			$$ = $1 / $3;
 		}
 		printf("exp2:%d ,%s,%d\n",$1,$2.c_str(),$3);
+	}
+	| INTEGER
+	{
+		$$ = $1;
+		printf("exp1:%d\n",$1);
 	};
 	
 %%
