@@ -11,7 +11,7 @@ extern "C"
 %}
 
 %token INTEGER
-%token<optor> OPT
+%token OPT
 %type expression
 %%
 
@@ -25,19 +25,19 @@ expression :
 	}
 	| expression opt integer
 	{
-		if ($2 == "+") {
+		if ($2.optor == "+") {
 			$$.number = $1.number + $3.number;
 		}
-		else if ($2 == "-") {
+		else if ($2.optor == "-") {
 			$$.number = $1.number - $3.number;
 		}
-		else if ($2 == "*") {
+		else if ($2.optor == "*") {
 			$$.number = $1.number * $3.number;
 		}
-		else if ($2 == "/") {
+		else if ($2.optor == "/") {
 			$$.number = $1.number / $3.number;
 		}
-		printf("exp2:%d ,%s,%d\n",$1.number,$2.c_str(),$3.number);
+		printf("exp2:%d ,%s,%d\n",$1.number,$2.optor.c_str(),$3.number);
 	}
 	
 %%
