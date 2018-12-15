@@ -12,7 +12,7 @@ extern "C"
 
 %token INTEGER
 %token OPT
-%type expression
+%type<number> expression
 %%
 
 expression : 
@@ -20,24 +20,24 @@ expression :
 	}
 	| integer
 	{
-		$$.number = $1.number;
+		$$ = $1.number;
 		printf("exp1:%d\n",$1.number);
 	}
 	| expression opt integer
 	{
 		if ($2.optor == "+") {
-			$$.number = $1.number + $3.number;
+			$$ = $1 + $3.number;
 		}
 		else if ($2.optor == "-") {
-			$$.number = $1.number - $3.number;
+			$$ = $1 - $3.number;
 		}
 		else if ($2.optor == "*") {
-			$$.number = $1.number * $3.number;
+			$$ = $1 * $3.number;
 		}
 		else if ($2.optor == "/") {
-			$$.number = $1.number / $3.number;
+			$$ = $1 / $3.number;
 		}
-		printf("exp2:%d ,%s,%d\n",$1.number,$2.optor.c_str(),$3.number);
+		printf("exp2:%d ,%s,%d\n",$1,$2.optor.c_str(),$3.number);
 	}
 	
 %%
