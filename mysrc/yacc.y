@@ -22,7 +22,7 @@ complete : expression OVER
 		{
 			$$ = $1;
 			printf("result:%d\n",$$);
-			return YYACCEPT;
+			YYACCEPT;
 		}
 
 expression :  expression OPT INTEGER
