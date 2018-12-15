@@ -49,7 +49,7 @@ expression :  expression OPT INTEGER
 	
 %%
 int main( int argc, char **argv ) {
-	yyparse();
+	while (yyparse() == 0);
 	return 0;
 }
 
