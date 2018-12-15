@@ -12,7 +12,7 @@ extern "C"
 
 %token INTEGER
 %token<optor> OPT
-%token expression
+%type expression
 %%
 
 expression : 
