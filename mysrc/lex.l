@@ -8,6 +8,8 @@ extern "C"
 int yylex(void);
 }
 
+YYSTYPE yylval;
+
 %}
 
 digit        ([0-9])
