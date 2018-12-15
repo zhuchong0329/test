@@ -10,8 +10,8 @@ extern "C"
 
 %}
 
-%token INTEGER
-%token OPT
+%token <number> INTEGER
+%token <optor> OPT
 %type<number> expression
 %%
 
@@ -20,25 +20,25 @@ expression :
 	}
 	| INTEGER
 	{
-		$$ = $1.number;
-		printf("exp1:%d\n",$1.number);
+		$$ = $1;
+		printf("exp1:%d\n",$1);
 	}
 	| expression OPT INTEGER
 	{
-		if ($2.optor == "+") {
-			$$ = $1 + $3.number;
+		if ($2 == "+") {
+			$$ = $1 + $3;
 		}
-		else if ($2.optor == "-") {
-			$$ = $1 - $3.number;
+		else if ($2 == "-") {
+			$$ = $1 - $3;
 		}
-		else if ($2.optor == "*") {
-			$$ = $1 * $3.number;
+		else if ($2 == "*") {
+			$$ = $1 * $3;
 		}
-		else if ($2.optor == "/") {
-			$$ = $1 / $3.number;
+		else if ($2 == "/") {
+			$$ = $1 / $3;
 		}
-		printf("exp2:%d ,%s,%d\n",$1,$2.optor.c_str(),$3.number);
-	}
+		printf("exp2:%d ,%s,%d\n",$1,$2.c_str(),$3);
+	};
 	
 %%
 int main( int argc, char **argv ) {
