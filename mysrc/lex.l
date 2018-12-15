@@ -21,13 +21,13 @@ opt     ("+"|"-"|"*"|"/")
 {integer}  {
 	yylval.number=atoi(yytext);
 	printf("int:%d\n",yylval.number);
-	//return "int";
+	return INTEGER;
 }
 
 {opt} {
 	yylval.optor=yytext;
 	printf("operator:%s\n",yylval.optor.c_str());
-	//return "operator";
+	return OPT;
 }
 
 %%
