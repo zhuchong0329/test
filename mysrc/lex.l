@@ -14,7 +14,7 @@ YYSTYPE yylval;
 
 digit        ([0-9])
 integer      ({digit}+)
-operator     ("+"|"-"|"*"|"/")
+opt     ("+"|"-"|"*"|"/")
 
 %%
 
@@ -24,9 +24,9 @@ operator     ("+"|"-"|"*"|"/")
 	//return "int";
 }
 
-{operator} {
-	yylval.operator=yytext;
-	printf("operator:%s\n",yylval.operator.c_str());
+{opt} {
+	yylval.optor=yytext;
+	printf("operator:%s\n",yylval.optor.c_str());
 	//return "operator";
 }
 

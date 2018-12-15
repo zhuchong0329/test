@@ -14,7 +14,7 @@ using namespace std;
 
 struct Type{
 	int number;
-	string oprator;
+	string optor;
 };
 
 
