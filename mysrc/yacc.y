@@ -18,12 +18,12 @@ extern "C"
 expression : 
 	{
 	}
-	| integer
+	| INTEGER
 	{
 		$$ = $1.number;
 		printf("exp1:%d\n",$1.number);
 	}
-	| expression opt integer
+	| expression OPT INTEGER
 	{
 		if ($2.optor == "+") {
 			$$ = $1 + $3.number;
