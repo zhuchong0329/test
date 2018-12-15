@@ -22,12 +22,10 @@ complete : expression OVER
 		{
 			$$ = $1;
 			printf("result:%d\n",$$);
+			return YYACCEPT;
 		}
 
-expression : 
-	{
-	}
-	| expression OPT INTEGER
+expression :  expression OPT INTEGER
 	{
 		if ($2 == "+") {
 			$$ = $1 + $3;
