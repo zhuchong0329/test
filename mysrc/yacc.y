@@ -19,13 +19,17 @@ extern "C"
 %%
 
 complete : expression OVER 
-		{
-			$$ = $1;
-			printf("result:%d\n",$$);
-			YYACCEPT;
-		}
+	{
+		$$ = $1;
+		printf("result:%d\n",$$);
+		YYACCEPT;
+	}
 
-expression :  expression OPT INTEGER
+expression : 
+	{
+	
+	}
+	| expression OPT INTEGER
 	{
 		if ($2 == "+") {
 			$$ = $1 + $3;
