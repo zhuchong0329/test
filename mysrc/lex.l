@@ -4,7 +4,7 @@
 
 extern "C"
 {
-int yywrap(void);
+//int yywrap(void);
 int yylex(void);
 }
 
@@ -16,13 +16,13 @@ operator     ("+"|"-"|"*"|"/")
 
 %%
 
-integer  {
+{integer}  {
 	yylval.number=atoi(yytext);
 	printf("int:%d\n",yylval.number);
 	//return "int";
 }
 
-operator {
+{operator} {
 	yylval.operator=yytext;
 	printf("operator:%s\n",yylval.operator.c_str());
 	//return "operator";
