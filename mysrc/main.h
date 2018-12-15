@@ -18,6 +18,6 @@ struct Type{
 };
 
 
-#define YYSTYPE Type
+#define yylval Type
 
 #endif /* MAIN_H_ */
