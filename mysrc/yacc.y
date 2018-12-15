@@ -33,12 +33,12 @@ expression :
 		else if ($2 == "/") {
 			$$ = $1 / $3;
 		}
-		printf("exp2:%d ,%s,%d\n",$1,$2.c_str(),$3);
+		printf("exp:%d\n",$$);
 	}
 	| INTEGER
 	{
 		$$ = $1;
-		printf("exp1:%d\n",$1);
+		//printf("exp1:%d\n",$1);
 	};
 	
 %%
