@@ -14,6 +14,7 @@ int yylex(void);
 digit        ([0-9])
 integer      ({digit}+)
 opt     ("+"|"-"|"*"|"/")
+over ("\n")
 
 %%
 
@@ -27,6 +28,10 @@ opt     ("+"|"-"|"*"|"/")
 	yylval.optor=yytext;
 	//printf("operator:%s\n",yylval.optor.c_str());
 	return OPT;
+}
+
+{over} {
+	return OVER;
 }
 
 %%

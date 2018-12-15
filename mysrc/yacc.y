@@ -13,8 +13,16 @@ extern "C"
 
 %token <number> INTEGER
 %token <optor> OPT
+%token OVER
 %type<number> expression
+%type<number> complete
 %%
+
+complete : expression OVER 
+		{
+			$$ = $1;
+			printf("result:%d\n",$$);
+		}
 
 expression : 
 	{
@@ -33,7 +41,7 @@ expression :
 		else if ($2 == "/") {
 			$$ = $1 / $3;
 		}
-		printf("exp:%d\n",$$);
+		
 	}
 	| INTEGER
 	{
@@ -43,7 +51,6 @@ expression :
 	
 %%
 int main( int argc, char **argv ) {
- 
 	yyparse();
 	return 0;
 }
