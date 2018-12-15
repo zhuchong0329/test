@@ -4,7 +4,7 @@
 
 extern "C"
 {
-//int yywrap(void);
+int yywrap(void);
 int yylex(void);
 }
 
@@ -31,6 +31,12 @@ opt     ("+"|"-"|"*"|"/")
 }
 
 %%
+
+int yywrap()//此函数必须由用户提供,或者声明 %option noyywrap
+{
+    return 1;
+}
+
 int
 main( int argc, char **argv ) {
  
