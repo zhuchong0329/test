@@ -9,8 +9,6 @@ int yywrap(void);
 int yylex(void);
 }
 
-YYSTYPE yylval;
-
 %}
 
 digit        ([0-9])
