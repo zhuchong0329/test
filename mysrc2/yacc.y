@@ -61,7 +61,7 @@ foctor : '(' expression ')'
 		$$ = $2;
 		printf("(select)\n");
 	}
-	| INTEGER
+	| NUMBER
 	{
 		$$ = $1;
 	};
