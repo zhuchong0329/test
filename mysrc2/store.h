@@ -8,7 +8,9 @@
 #ifndef STORE_H_
 #define STORE_H_
 
+#include <string>
 using namespace std;
+
 
 int getIdentify(const string& identify,int* value);
 
