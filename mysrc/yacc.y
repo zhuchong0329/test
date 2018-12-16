@@ -17,12 +17,10 @@ extern "C"
 %token<optor> LOWOPT
 %token<optor> LEFTBRACKET
 %token<optor> RIGHTBRACKET
-%token<optor> LOWOPT
 %type<number> complete
 %type<number> expression
 %type<number> term
 %type<number> foctor
-%type<optor> other
 %%
 
 complete : expression OVER 
