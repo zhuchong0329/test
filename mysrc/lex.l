@@ -13,6 +13,8 @@ int yylex(void);
 
 digit        ([0-9])
 integer      ({digit}+)
+hightopt     ('*' | '/')
+lowopt       ('+' | '-')
 over ("\n")
 
 %%
@@ -25,6 +27,16 @@ over ("\n")
 
 {over} {
 	return OVER;
+}
+
+{hightopt} {
+	yylval.optor = yytext;
+	return HIGHTOPT;
+}
+
+{lowopt} {
+	yylval.optor = yytext;
+	return LOWOPT;
 }
 
 %%
