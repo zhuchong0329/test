@@ -19,6 +19,7 @@ extern "C"
 %type<number> expression
 %type<number> term
 %type<number> foctor
+%type<optor> other
 %%
 
 complete : expression OVER 
@@ -59,11 +60,18 @@ term : foctor
 foctor : '(' expression ')'
 	{
 		$$ = $2;
+		printf("(select)\n");
 	}
 	| INTEGER
 	{
 		$$ = $1;
-	} 
+	};
+
+other : 'a'
+	{
+		printf("aaaa\n");
+		YYACCEPT;
+	};
 	
 	
 %%
