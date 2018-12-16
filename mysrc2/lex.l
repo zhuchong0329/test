@@ -27,6 +27,7 @@ other  (.)
 }
 
 {set}  {
+	printf("parse set\n");
 	return SET;
 }
 
