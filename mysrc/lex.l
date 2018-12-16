@@ -25,10 +25,6 @@ over ("\n")
 	return INTEGER;
 }
 
-{over} {
-	return OVER;
-}
-
 {hightopt} {
 	yylval.optor=yytext;
 	return HIGHTOPT;
@@ -37,6 +33,10 @@ over ("\n")
 {lowopt} {
 	yylval.optor=yytext;
 	return LOWOPT;
+}
+
+{over} {
+	return OVER;
 }
 
 %%
