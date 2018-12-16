@@ -52,7 +52,7 @@ term : foctor
 	}
 	| term '/' foctor
 	{
-		$$ = $1 / $2;
+		$$ = $1 / $3;
 	}
 	;
 
