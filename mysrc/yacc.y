@@ -15,6 +15,7 @@ extern "C"
 %token OVER
 %token<optor> HIGHTOPT
 %token<optor> LOWOPT
+%type<number> complete
 %type<number> expression
 %type<number> term
 %type<number> foctor
@@ -34,10 +35,10 @@ expression : term
 		|  expression LOWOPT term
 		{
 			if ($2 == "+") {
-				$$ = $1 + $2;
+				$$ = $1 + $3;
 			}
 			else if ($2 == "-") {
-				$$ = $1 - $2;
+				$$ = $1 - $3;
 			}
 		}
 		
@@ -48,10 +49,10 @@ term : foctor
 	| term HIGHTOPT foctor
 	{
 		if ($2 == "*") {
-			$$ = $1 * $2;
+			$$ = $1 * $3;
 		}
 		else if ($2 == "/") {
-			$$ = $1 / $2;
+			$$ = $1 / $3;
 		}
 	}
 
@@ -59,7 +60,7 @@ foctor : INTEGER
 	{
 		$$ = $1;
 	}
-	| '(' expression ')'
+	| "(" expression ")"
 	{
 		$$ = $2;
 	}

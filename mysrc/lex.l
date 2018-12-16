@@ -13,8 +13,8 @@ int yylex(void);
 
 digit        ([0-9])
 integer      ({digit}+)
-hightopt     ("*" | "/")
-lowopt       ('+' | '-')
+hightopt     ("*"|"/")
+lowopt       ("+"|"-")
 over ("\n")
 
 %%
