@@ -26,7 +26,7 @@ complete : expression OVER
 		$$ = $1;
 		printf("result:%d\n",$$);
 		YYACCEPT;
-	}
+	};
 
 expression : term
 		{
@@ -40,7 +40,7 @@ expression : term
 			else if ($2 == "-") {
 				$$ = $1 - $3;
 			}
-		}
+		};
 		
 term : foctor
 	{
@@ -54,7 +54,7 @@ term : foctor
 		else if ($2 == "/") {
 			$$ = $1 / $3;
 		}
-	}
+	};
 
 foctor : INTEGER
 	{
@@ -63,7 +63,7 @@ foctor : INTEGER
 	| "(" expression ")"
 	{
 		$$ = $2;
-	}
+	};
 	
 	
 %%
