@@ -25,7 +25,7 @@ over ("\n")
 	return INTEGER;
 }
 
-{hightopt} {
+{hightopt}  {
 	yylval.optor=yytext;
 	return HIGHTOPT;
 }
