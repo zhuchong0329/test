@@ -31,11 +31,11 @@ complete : expression OVER
 	}
 	;
 
-assign : SET IDENTIFY '=' expression OVER
+assign : SET IDENTIFY '=' IDENTIFY OVER
 	{
 		$$ = 0;
 		printf("assign %s = %d\n",$2.c_str(),$4);
-		getIdentify($2,$4)
+		setIdentify($2,$4)
 		YYACCEPT;
 	}
 
