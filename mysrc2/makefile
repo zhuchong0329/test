@@ -6,6 +6,9 @@ OBJECT=main #生成的目标文件
 $(OBJECT): lex.yy.o  yacc.tab.o
 	$(CC) lex.yy.o yacc.tab.o -o $(OBJECT)
 
+store.o : store.cpp 
+	$(cc) -c store.cpp
+
 lex.yy.o: lex.yy.c  yacc.tab.h  main.h
 	$(CC) -c lex.yy.c
 

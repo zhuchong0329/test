@@ -1,5 +1,6 @@
 %{
 
+#include "store.h"
 #include "main.h"
 #include <stdio.h>
 	
@@ -19,6 +20,7 @@ extern "C"
 %type<number> expression
 %type<number> term
 %type<number> foctor
+%type assign
 %%
 
 complete : expression OVER 
@@ -26,7 +28,16 @@ complete : expression OVER
 		$$ = $1;
 		printf("result:%d\n",$$);
 		YYACCEPT;
-	};
+	}
+	;
+
+assign : SET IDENTIFY '=' expression OVER
+	{
+		$$ = 0;
+		printf("assign %s = %d\n",$2.c_str(),$4);
+		getIdentify($2,value)
+		YYACCEPT;
+	}
 
 expression : term
 		{
@@ -59,12 +70,21 @@ term : foctor
 foctor : '(' expression ')'
 	{
 		$$ = $2;
-		printf("(select)\n");
 	}
 	| NUMBER
 	{
 		$$ = $1;
-	};
+	}
+	| IDENTIFY
+	{
+		int value;
+		if (getIdentify($1,value) != 0) {
+			printf("%s not set.\n",$1.c_str());
+			YYABORT ;
+		}
+		$$ = value;
+	}
+	;
 
 
 	
