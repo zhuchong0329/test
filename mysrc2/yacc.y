@@ -28,7 +28,7 @@ complete : expression OVER
 		printf("result:%d\n",$$);
 		YYACCEPT;
 	}
-	| SET IDENTIFY '=' NUMBER OVER
+	| SET IDENTIFY '=' expression OVER
 	{
 		$$ = 0;
 		printf("assign %s = %d\n",$2.c_str(),$4);
@@ -39,7 +39,6 @@ complete : expression OVER
 expression : term
 		{
 			$$ = $1;
-			printf("term:%d\n",$1);
 		}
 		|  expression '+' term
 		{
