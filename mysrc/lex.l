@@ -30,12 +30,12 @@ over ("\n")
 }
 
 {hightopt} {
-	yylval.optor = yytext;
+	yylval.optor=yytext;
 	return HIGHTOPT;
 }
 
 {lowopt} {
-	yylval.optor = yytext;
+	yylval.optor=yytext;
 	return LOWOPT;
 }
 
