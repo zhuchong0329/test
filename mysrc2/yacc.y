@@ -35,13 +35,14 @@ assign : SET IDENTIFY '=' expression OVER
 	{
 		$$ = 0;
 		printf("assign %s = %d\n",$2.c_str(),$4);
-		getIdentify($2,value)
+		getIdentify($2,$4)
 		YYACCEPT;
 	}
 
 expression : term
 		{
 			$$ = $1;
+			printf("term:%d\n",$1);
 		}
 		|  expression '+' term
 		{
