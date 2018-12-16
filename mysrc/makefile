@@ -20,4 +20,4 @@ lex.yy.c: lex.l
 	$(LEX) lex.l
 
 clean:
-	rm -f $(OBJECT)  *.o
+	rm -f $(OBJECT)  *.o lex.yy.c yacc.tab.c yacc.tab.h
