@@ -56,14 +56,14 @@ term : foctor
 		}
 	};
 
-foctor : INTEGER
-	{
-		$$ = $1;
-	}
-	| "(" expression ")"
+foctor : '(' expression ')'
 	{
 		$$ = $2;
-	};
+	}
+	| INTEGER
+	{
+		$$ = $1;
+	} 
 	
 	
 %%
