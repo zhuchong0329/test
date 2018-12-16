@@ -20,7 +20,7 @@ extern "C"
 %type<number> expression
 %type<number> term
 %type<number> foctor
-%type assign
+%type<number> assign
 %%
 
 complete : expression OVER 
