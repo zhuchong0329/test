@@ -17,6 +17,7 @@ set          ("set")
 letter      ([a-zA-Z])
 identifier  ({letter}+)
 over ("\n")
+whitespace (" ")
 other  (.)
 
 %%
@@ -38,6 +39,10 @@ other  (.)
 
 {over} {
 	return OVER;
+}
+
+{whitespace} {
+	
 }
 
 {other} {

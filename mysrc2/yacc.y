@@ -20,7 +20,6 @@ extern "C"
 %type<number> expression
 %type<number> term
 %type<number> foctor
-%type<number> assign
 %%
 
 complete : expression OVER 
@@ -29,15 +28,13 @@ complete : expression OVER
 		printf("result:%d\n",$$);
 		YYACCEPT;
 	}
-	;
-
-assign : SET IDENTIFY '=' IDENTIFY OVER
+	| SET IDENTIFY '=' NUMBER OVER
 	{
 		$$ = 0;
 		printf("assign %s = %d\n",$2.c_str(),$4);
-		setIdentify($2,$4)
+		setIdentify($2,$4);
 		YYACCEPT;
-	}
+	};
 
 expression : term
 		{
