@@ -15,6 +15,9 @@ extern "C"
 %token OVER
 %token<optor> HIGHTOPT
 %token<optor> LOWOPT
+%token<optor> LEFTBRACKET
+%token<optor> RIGHTBRACKET
+%token<optor> LOWOPT
 %type<number> complete
 %type<number> expression
 %type<number> term
@@ -57,7 +60,7 @@ term : foctor
 		}
 	};
 
-foctor : '(' expression ')'
+foctor : LEFTBRACKET expression RIGHTBRACKET
 	{
 		$$ = $2;
 		printf("(select)\n");
@@ -67,11 +70,7 @@ foctor : '(' expression ')'
 		$$ = $1;
 	};
 
-other : 'a'
-	{
-		printf("aaaa\n");
-		YYACCEPT;
-	};
+
 	
 	
 %%

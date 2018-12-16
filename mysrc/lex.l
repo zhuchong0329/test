@@ -15,6 +15,8 @@ digit        ([0-9])
 integer      ({digit}+)
 hightopt     ("*"|"/")
 lowopt       ("+"|"-")
+left         ("(")
+right        (")")
 over ("\n")
 
 %%
@@ -37,6 +39,14 @@ over ("\n")
 
 {over} {
 	return OVER;
+}
+
+{left} {
+	return LEFTBRACKET;
+}
+
+{right} {
+	return RIGHTBRACKET;
 }
 
 %%
