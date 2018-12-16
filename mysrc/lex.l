@@ -13,7 +13,6 @@ int yylex(void);
 
 digit        ([0-9])
 integer      ({digit}+)
-opt     ("+"|"-"|"*"|"/")
 over ("\n")
 
 %%
@@ -22,12 +21,6 @@ over ("\n")
 	yylval.number=atoi(yytext);
 	//printf("int:%d\n",yylval.number);
 	return INTEGER;
-}
-
-{opt} {
-	yylval.optor=yytext;
-	//printf("operator:%s\n",yylval.optor.c_str());
-	return OPT;
 }
 
 {over} {

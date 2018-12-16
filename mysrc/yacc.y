@@ -11,11 +11,11 @@ extern "C"
 
 %}
 
-%token <number> INTEGER
-%token <optor> OPT
+%token<number> INTEGER
 %token OVER
 %type<number> expression
-%type<number> complete
+%type<number> term
+%type<number> foctor
 %%
 
 complete : expression OVER 
@@ -25,31 +25,12 @@ complete : expression OVER
 		YYACCEPT;
 	}
 
-expression : 
-	{
+expression : INTEGER ("+" | "-") INTEGER
+		{
+			$$ = $1;
+			printf("operator:%s",$2);
+		}
 	
-	}
-	| expression OPT INTEGER
-	{
-		if ($2 == "+") {
-			$$ = $1 + $3;
-		}
-		else if ($2 == "-") {
-			$$ = $1 - $3;
-		}
-		else if ($2 == "*") {
-			$$ = $1 * $3;
-		}
-		else if ($2 == "/") {
-			$$ = $1 / $3;
-		}
-		
-	}
-	| INTEGER
-	{
-		$$ = $1;
-		//printf("exp1:%d\n",$1);
-	};
 	
 %%
 int main( int argc, char **argv ) {
