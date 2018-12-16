@@ -78,7 +78,7 @@ foctor : '(' expression ')'
 	| IDENTIFY
 	{
 		int value;
-		if (getIdentify($1,value) != 0) {
+		if (getIdentify($1,&value) != 0) {
 			printf("%s not set.\n",$1.c_str());
 			YYABORT ;
 		}
